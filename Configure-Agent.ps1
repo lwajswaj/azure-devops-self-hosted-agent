@@ -1,7 +1,6 @@
 Param(
   [Parameter(Mandatory)]
   [string] $TeamAccount,
-  [Parameter(Mandatory)]
   [string] $PoolName = "default",
   [Parameter(Mandatory)]
   [string] $PATToken

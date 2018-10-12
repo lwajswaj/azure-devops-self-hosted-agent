@@ -11,6 +11,6 @@ Files included in this repo are:
 
 * azuredeploy.json: *for deploying into Azure*
 * Configure-Agent.ps1: *to install all the required software and configure Azure DevOps agent*
-* software.json: *definition of software to be installeD*
+* software.json: *definition of software to be installed*
 
 In order to connect a self-hosted agent to Azure DevOps, you need to generate a [Personal Access Token (PAT)](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts#create-personal-access-tokens-to-authenticate-access)

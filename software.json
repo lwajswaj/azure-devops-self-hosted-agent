@@ -1,0 +1,140 @@
+{
+  "VSTS":{
+    "Uri": "https://vstsagentpackage.azureedge.net/agent/2.140.0/vsts-agent-win-x64-2.140.0.zip",
+    "Hash": "7CAB582D6A05B1147B023423CA9EE43E320CE70BDE11615E8D60E92415FC438C",
+    "HashType": "SHA256",
+    "CmdLine": "config.cmd",
+    "EnvironmentalVariables": [
+      {
+        "Name": "DotNetFramework",
+        "Value": "C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319"
+      },
+      {
+        "Name": "Cmd",
+        "Value": "C:\\Windows\\system32\\cmd.exe"
+      }
+    ],
+    "PreRequirements":[
+      {
+        "dotnetFrameworkTls12":{
+          "PSLine": "New-ItemProperty -Path \"HKLM:\\SOFTWARE\\Microsoft\\.NETFramework\\v4.0.30319\" -Name SchUseStrongCrypto -Value 1 -PropertyType Dword -Force"
+        },
+        "dotnetFrameworkTls12_x86":{
+          "PSLine": "New-ItemProperty -Path \"HKLM:\\SOFTWARE\\Wow6432Node\\Microsoft\\.NETFramework\\v4.0.30319\" -Name SchUseStrongCrypto -Value 1 -PropertyType Dword -Force"
+        },
+        "LongPathsEnabled":{
+          "PSLine": "New-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\" -Name LongPathsEnabled -Value 1 -PropertyType Dword -Force"
+        },
+        "GIT": {
+          "Uri": "https://github.com/git-for-windows/git/releases/download/v2.18.0.windows.1/Git-2.18.0-64-bit.exe",
+          "Hash": "AA81C9F2A81FD07BA0582095474365821880FD787B1CBE03ABAF71D9AA69D359",
+          "HashType": "SHA256",
+          "CmdLine": "Git-2.18.0-64-bit.exe",
+          "Arguments": "/VERYSILENT /NORESTART",
+          "AddToPath": "C:\\Program Files\\Git\\Bin\\",
+          "EnvironmentalVariables": [
+            {
+              "Name": "curl",
+              "Value": "C:\\Program Files\\Git\\mingw64\\bin\\curl.exe"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "MSDeploy":{
+    "Uri": "http://download.microsoft.com/download/0/1/D/01DC28EA-638C-4A22-A57B-4CEF97755C6C/WebDeploy_amd64_en-US.msi",
+    "Hash": "721D9C3B8416518C0BB8A440E9D70EA927DA151B9C3D428A1B04E49CFFCDC484",
+    "HashType": "SHA256",
+    "CmdLine": "WebDeploy_amd64_en-US.msi",
+    "AddToPath": "C:\\Program Files (x86)\\IIS\\Microsoft Web Deploy V3\\"
+  },
+  "AZCli":{
+    "Uri": "https://azurecliprod.azureedge.net/msi/azure-cli-2.0.45.msi",
+    "Hash": "CDB3D37C0179311274F7ED9649E283921CC1A4CB2B7FA5409B483857E0263161",
+    "HashType": "SHA256",
+    "CmdLine": "azure-cli-2.0.45.msi",
+    "AddToPath": "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2\\wbin",
+    "EnvironmentalVariables": [
+      {
+        "Name": "azcli",
+        "Value": "C:\\Program Files (x86)\\Microsoft SDKs\\Azure\\CLI2\\wbin\\az.cmd"
+      }
+    ]
+  },
+  "NodeJS":{
+    "Uri": "https://nodejs.org/dist/v8.11.4/node-v8.11.4-x64.msi",
+    "Hash": "452A0FA9CBAC277558808FF888E0C924DEB5B51945FAD67E83FAD6C7391C1203",
+    "HashType": "SHA256",
+    "CmdLine": "node-v8.11.4-x64.msi",
+    "AddToPath": "C:\\Program Files\\nodejs\\",
+    "EnvironmentalVariables": [
+      {
+        "Name": "npm",
+        "Value": "C:\\Program Files\\nodejs\\npm.cmd"
+      },
+      {
+        "Name": "node.js",
+        "Value": "C:\\Program Files\\nodejs\\node.exe"
+      }
+    ]
+  },
+  "SQLPackage":{
+    "Uri": "https://download.microsoft.com/download/3/5/A/35A485C7-E84E-410F-8334-C5E10377FFC0/SSDT-Setup-ENU.exe",
+    "Hash": "4CA5B3B06B6545EFDECB611217B595CB5A576F06E51E9254A90925F01DADFAE4",
+    "HashType": "SHA256",
+    "CmdLine": "SSDT-Setup-ENU.exe",
+    "Arguments": "/install INSTALLVSSQL /quiet /norestart",
+    "AddToPath": "C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\",
+    "EnvironmentalVariables": [
+      {
+        "Name": "SqlPackage",
+        "Value": "C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\SqlPackage.exe"
+      }
+    ],
+    "PreRequirements": [
+      {
+        "DACFX":{
+          "Uri": "https://download.microsoft.com/download/D/5/C/D5CFC940-DA21-44D3-84FF-A0FD147F1681/EN/x86/DacFramework.msi",
+          "Hash": "665BCC245092C0CD3EA091CC460246F88631AE219003A003548221507219AC74",
+          "HashType": "SHA256",
+          "CmdLine": "DACFramework.msi"
+        }
+      }
+    ]
+  },
+  "AzureRM": {
+    "PSLine": "Install-Module AzureRM -Force -AllowClobber -RequiredVersion 6.8.1",
+    "EnvironmentalVariables": [
+      {
+        "Name": "AzurePS",
+        "Value": "6.8.1"
+      }
+    ]
+  },
+  "Pester": {
+    "PSLine": "Install-Module Pester -Force -AllowClobber -SkipPublisherCheck -RequiredVersion 4.4.0",
+    "EnvironmentalVariables": [
+      {
+        "Name": "Pester",
+        "Value": "4.4.0"
+      }
+    ]
+  },
+  "SQLPS":{
+    "Uri": "https://download.microsoft.com/download/8/7/2/872BCECA-C849-4B40-8EBE-21D48CDF1456/ENU/x64/PowerShellTools.msi",
+    "Hash": "73FBF36472D713E5B0116656E92EFEB2E1537599BA5F092D096F18439C81D8C6",
+    "HashType": "SHA256",
+    "CmdLine": "PowerShellTools.msi",
+    "PreRequirements": [
+      {
+        "SharedManagementObjects":{
+          "Uri": "https://download.microsoft.com/download/8/7/2/872BCECA-C849-4B40-8EBE-21D48CDF1456/ENU/x64/SharedManagementObjects.msi",
+          "Hash": "EA38D5231F6678089316D744EDC5B074AF735DDD933FD665CE961F602616640C",
+          "HashType": "SHA256",
+          "CmdLine": "SharedManagementObjects.msi"
+        }
+      }
+    ]
+  }
+}

@@ -47,7 +47,7 @@
       "diagnosticsStorageAccountType": "Standard_LRS",
       "diagnosticsStorageAccountKind": "Storage",
       "diagnosticsStorageAccountName": "[toLower(concat(parameters('virtualMachineName'),'DIAGS01'))]",
-      "diagnosticsStorageAccountId": "[concat('Microsoft.Storage/storageAccounts/',variables('diagnosticsStorageAccountName'))]",
+      "diagnosticsStorageAccountId": "[concat('Microsoft.Storage/storageAccounts/',variables('diagnosticsStorageAccountName'))]"
     },
     "resources": [
         {

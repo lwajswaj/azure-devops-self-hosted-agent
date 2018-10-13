@@ -14,3 +14,5 @@ Files included in this repo are:
 * software.json: *definition of software to be installed*
 
 In order to connect a self-hosted agent to Azure DevOps, you need to generate a [Personal Access Token (PAT)](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts#create-personal-access-tokens-to-authenticate-access)
+
+For more information on this project, check my [Azure DevOps – Build and Deploy a Windows Self-Hosted agent](https://leandrowp.blog/2018/10/12/azure-devops-build-and-deploy-a-windows-self-hosted-agent/) article

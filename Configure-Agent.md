@@ -25,7 +25,7 @@ Table describing each of the parameters:
 | <*DynamicParam*> | Switch | No | Based on software.json content, dynamic parameters will be added matching "<software-name>" |
 
 ## How software.json is processed
-All properties for a "<software-name>" in software.json are optional (If you haven't already, get familiar with [software.json syntax](software.md)) and they get processed pretty much in an independent manner. This is the order and the conditions to process each section:
+All properties for a "software-name" in software.json are optional (If you haven't already, get familiar with [software.json syntax](software.md)) and they get processed pretty much in an independent manner. This is the order and the conditions to process each section:
 
 1. If there are **PreRequirements**, they will get processed first. (that's why they are "pre", right?)
 2. If **Uri** is defined, then it will download the file to "C:\Packages\AzureDevOpsAgent". If it's a zip file, it will automatically expanded. If **Hash** is provided, after downloading the file, it will verify the hash matches, if it doesn't, it will abort the whole process.

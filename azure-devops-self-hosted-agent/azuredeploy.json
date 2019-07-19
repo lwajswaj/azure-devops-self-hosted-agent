@@ -1,0 +1,165 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachineName": {
+            "type": "string"
+        },
+        "operatingSystem":{
+          "type": "string",
+          "allowedValues": [
+            "2016-Datacenter-smalldisk",
+            "2016-Datacenter-Server-Core-smalldisk"
+          ],
+          "defaultValue": "2016-Datacenter-Server-Core-smalldisk"
+        },
+        "existingVirtualNetworkResourceGroupName": {
+          "type":"string"
+        },
+        "existingVirtualNetworkName": {
+            "type": "string"
+        },
+        "existingSubnetName": {
+            "type": "string"
+        },
+        "adminUsername": {
+          "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring"
+        },
+        "TeamAccount": {
+            "type": "string"
+        },
+        "PoolName": {
+            "type": "string"
+        },
+        "PATToken": {
+            "type": "securestring"
+        }
+    },
+    "variables": {
+      "networkInterfaceName": "[concat(parameters('virtualMachineName'),'_NIC01')]",
+      "virtualMachineSize": "Standard_DS2_v2",
+      "diskSizeGB": 31,
+      "vnetId": "[resourceId(parameters('existingVirtualNetworkResourceGroupName'),'Microsoft.Network/virtualNetworks', parameters('existingVirtualNetworkName'))]",
+      "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('existingSubnetName'))]",
+      "diagnosticsStorageAccountType": "Standard_LRS",
+      "diagnosticsStorageAccountKind": "Storage",
+      "diagnosticsStorageAccountName": "[toLower(concat(parameters('virtualMachineName'),'DIAGS01'))]",
+      "diagnosticsStorageAccountId": "[concat('Microsoft.Storage/storageAccounts/',variables('diagnosticsStorageAccountName'))]"
+    },
+    "resources": [
+        {
+            "name": "[parameters('virtualMachineName')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Network/networkInterfaces/', variables('networkInterfaceName'))]",
+                "[concat('Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]"
+            ],
+            "properties": {
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachineName')]",
+                    "adminUsername": "[parameters('adminUsername')]",
+                    "adminPassword": "[parameters('adminPassword')]",
+                    "windowsConfiguration": {
+                        "provisionVmAgent": "true"
+                    }
+                },
+                "hardwareProfile": {
+                    "vmSize": "[variables('virtualMachineSize')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "[parameters('operatingSystem')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "createOption": "fromImage",
+                        "diskSizeGB": "[variables('diskSizeGB')]",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('networkInterfaceName'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[reference(variables('diagnosticsStorageAccountName')).primaryEndpoints.blob]"
+                    }
+                }
+            },
+            "resources": [
+              {
+                "type": "extensions",
+                "name": "AzureDevOpsAgent",
+                "apiVersion": "2018-06-01",
+                "location": "[ResourceGroup().location]",
+                "dependsOn": [
+                  "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
+                ],
+                "properties": {
+                  "publisher": "Microsoft.Compute",
+                  "type": "CustomScriptExtension",
+                  "autoUpgradeMinorVersion": true,
+                  "typeHandlerVersion": "1.9",
+                  "settings": {
+                    "fileUris": [
+                      "https://raw.githubusercontent.com/lwajswaj/azure-devops-self-hosted-agent/master/Configure-Agent.ps1",
+                      "https://raw.githubusercontent.com/ikepcampbell/azure-devops-self-hosted-agent/master/software.json"
+                    ]
+                  },
+                  "protectedSettings": {
+                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass -File \".\\Configure-Agent.ps1\" -TeamAccount \"',parameters('TeamAccount'),'\" -PoolName \"',parameters('PoolName'),'\" -PATToken \"',parameters('PATToken'),'\" -MSDeploy -AzureRM -NodeJS -SQLPackage -Pester -SQLPS')]"
+                  }
+                }
+              }
+            ]
+        },
+        {
+            "name": "[variables('diagnosticsStorageAccountName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2018-02-01",
+            "location": "[resourceGroup().location]",
+            "properties": {},
+            "kind": "[variables('diagnosticsStorageAccountKind')]",
+            "sku": {
+                "name": "[variables('diagnosticsStorageAccountType')]"
+            }
+        },
+        {
+            "name": "[variables('networkInterfaceName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "apiVersion": "2018-04-01",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "primary",
+                        "properties": {
+                            "subnet": {
+                                "id": "[variables('subnetRef')]"
+                            },
+                            "privateIPAllocationMethod": "Dynamic"
+                        }
+                    }
+                ],
+                "enableAcceleratedNetworking": true
+            }
+        }
+    ],
+    "outputs": {
+    }
+}

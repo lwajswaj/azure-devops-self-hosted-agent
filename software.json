@@ -136,5 +136,19 @@
         }
       }
     ]
-  }
+  },
+  "Python": {
+	"Uri": "https://www.python.org/ftp/python/3.7.3/python-3.7.3-amd64-webinstall.exe",
+	"Hash": "087FA2EFE5A6A952FBFD2EACF9EA511DBDEBD6340A83CA3C6677265123248089",
+	"HashType": "SHA256",
+	"CmdLine": "python-3.7.3-amd64-webinstall.exe",
+	"AddToPath": 
+		["C:\\Program Files\\Python\\",
+		 "C:\\Program Files\\Python\\Scripts\\"],
+	"EnvironmentalVariables": [
+      {
+        "Name": "PYTHON_HOME",
+        "Value": "C:\\Program Files\\Python\\"
+      }]
+	}
 }

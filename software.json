@@ -155,12 +155,12 @@
 	"Uri": "https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe",
 	"Hash": "9A30AB5568BA37BFBCAE5CDEE19E9DC30765C42CF066F605221563FF8B20EE34",
 	"HashType": "SHA256",
-	"PSline": ".\\python-3.7.4.exe /quiet /InstallAllUsers=1 /PrependPath=1 /Include_test=0 /FORCE",
+	"PSline": ".\\python-3.7.4.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0 /FORCE",
 	"AddToPath": "C:\\Program Files\\Python\\",
 	"EnvironmentalVariables": [
       {
         "Name": "PYTHON_HOME",
-        "Value": "C:\\Program Files\\Python\\Python.exe"
+        "Value": "C:\\Program Files\\Python\\python.exe"
       }]
 	}
 }

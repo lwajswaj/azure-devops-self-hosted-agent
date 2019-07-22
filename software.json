@@ -63,11 +63,11 @@
     ]
   },
   "Python":{
-	"Uri": "https://www.python.org/ftp/python/3.7.3/python-3.7.3-amd64-webinstall.exe",
-	"Hash": "81C2A845D5122B6F7A8EC33592505FCB155249DAAE3A97F42B1558462A12264B",
+	"Uri": "https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe",
+	"Hash": "BAB92F987320975C7826171A072BFD64F8F0941AAF2CDEBA6924B7025C9968A3",
 	"HashType": "SHA256",
-	"CmdLine": "python-3.7.3-amd64-webinstall.exe",
-	"Arguements": "/quietInstallAllUsers=1 PrependPath=1 Include_test=0",
+	"CmdLine": "python-3.7.4-amd64.exe",
+	"Arguements": "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0",
 	"AddToPath": "C:\\Program Files\\Python\\",
 	"EnvironmentalVariables": [
       {

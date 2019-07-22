@@ -144,6 +144,11 @@
   "CmdLine": "Firefox Setup 68.0esr.exe",
   "Arguments": "-ms -ma",
   "AddToPath": "C:\\Program Files\\Firefox\\",
+  "EnvironmentalVariables":[ {
+	  "Name" : "Firefox",
+	  "Value" : "C:\\Program Files\\"
+	  
+  }]
 	},
 
 "Python":{

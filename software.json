@@ -67,7 +67,7 @@
 	"Hash": "81C2A845D5122B6F7A8EC33592505FCB155249DAAE3A97F42B1558462A12264B",
 	"HashType": "SHA256",
 	"CmdLine": "python-3.7.3-amd64-webinstall.exe",
-	"Arguements": "/quiet",
+	"Arguements": "/quietInstallAllUsers=1 PrependPath=1 Include_test=0",
 	"AddToPath": "C:\\Program Files\\Python\\",
 	"EnvironmentalVariables": [
       {
@@ -87,7 +87,7 @@
         "Value": "C:\\Program Files\\nodejs\\npm.cmd"
       },
       {
-        "Name": "node.js11",
+        "Name": "node.js",
         "Value": "C:\\Program Files\\nodejs\\node.exe"
       }
     ]

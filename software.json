@@ -146,7 +146,7 @@
   "AddToPath": "C:\\Program Files\\Firefox\\",
   "EnvironmentalVariables":[ {
 	  "Name" : "Firefox",
-	  "Value" : "C:\\Program Files\\"
+	  "Value" : "C:\\Program Files\\Firefox.exe"
 	  
   }]
 	},

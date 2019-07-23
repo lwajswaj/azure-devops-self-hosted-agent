@@ -118,7 +118,7 @@
                   "settings": {
                     "fileUris": [
                       "https://raw.githubusercontent.com/lwajswaj/azure-devops-self-hosted-agent/master/Configure-Agent.ps1",
-                      "https://raw.githubusercontent.com/ikepcampbell/azure-devops-self-hosted-agent/master/software.json"
+                      "https://github.com/IkePCampbell/azure-devops-self-hosted-agent/blob/master/software.json"
                     ]
                   },
                   "protectedSettings": {

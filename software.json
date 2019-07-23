@@ -137,28 +137,14 @@
       }
     ]
   },
-"Firefox":{
-  "Uri": "http://download-installer.cdn.mozilla.net/pub/firefox/releases/68.0esr/win64/en-US/Firefox%20Setup%2068.0esr.exe",
-  "Hash": "F7A6CE0EA5CCA4FE45441D9C0799DFF0A97D63694BCC9C72EB00584D33B02D5D",
-  "HashType": "SHA256",
-  "CmdLine": "Firefox Setup 68.0esr.exe",
-  "Arguments": "-ms -ma",
-  "AddToPath": "C:\\Program Files\\Mozilla Firefox\\",
-  "EnvironmentalVariables":[ {
-	  "Name" : "firefox",
-	  "Value" : "C:\\Program Files\\Mozilla Firefox\\firefox.exe"
-	  
-  }]
-	},
-
-"Python":{
-	"Uri": "https://www.python.org/ftp/python/3.7.4/python-3.7.4-embed-amd64.zip",
-	"Hash": "FB65E5CD595AD01049F73B47BC0EE23FD03F0CBADC56CB318990CEE83B37761B",
-	"HashType": "SHA256",
-	"EnvironmentalVariables": [
+	"Python":{
+		"Uri": "https://www.python.org/ftp/python/3.7.4/python-3.7.4-embed-amd64.zip",
+		"Hash": "FB65E5CD595AD01049F73B47BC0EE23FD03F0CBADC56CB318990CEE83B37761B",
+		"HashType": "SHA256",
+		"EnvironmentalVariables": [
       {
         "Name": "PYTHON_HOME",
-        "Value": "C:\\Program Files\\python-3.7.4-embed-amd64\\python.exe"
+        "Value": "1"
       }]
 	}
 }

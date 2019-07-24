@@ -143,5 +143,12 @@
 	"HashType": "SHA256",
 	"CmdLine": "python-3.7.4.exe",
 	"Arguments": "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0"
+	"AddToPath": "C:\\Program Files (x86)\\Python37_32",
+	"EnvironmentalVariables": [
+      {
+        "Name": "python",
+        "Value": "C:\\Program Files (x86)\\Python37_32\\Python.exe"
+      }]
+
 	}
 }

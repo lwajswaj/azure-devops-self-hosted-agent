@@ -141,12 +141,7 @@
 	"Uri": "https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe",
 	"Hash": "9A30AB5568BA37BFBCAE5CDEE19E9DC30765C42CF066F605221563FF8B20EE34",
 	"HashType": "SHA256",
-	"PSLine": "start-process powershell -verb runAs .\\python-3.7.4.exe /quiet InstallAllUsers=1 PrependPath=1 Include_test=0",
-	"AddToPath": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64",
-	"EnvironmentalVariables": [
-      {
-        "Name": "python",
-        "Value": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\Python37_64\\Python.exe"
-      }]
+	"CmdLine": "python-3.7.4.exe",
+	"Arguments": "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0"
 	}
 }

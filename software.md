@@ -19,17 +19,21 @@ See azuredeploy.md to see how these packages are utilized.
 
 #### Specification Values
 The following values are all possible options
+
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
 | Uri | string | Not required | Url to the software to download |
-| Hash | string | Not required | Hash value of the return item of the url (exe, msi, zip), see below to find out how to find hash value|
+
+
+
+| Hash | string | Not required | Hash value of the return item of the url (exe, msi, zip), see below to find out how to find hash value |
 | HashType | string | Not required  | Supported values: MD5, SHA, SHA256, SHA384, SHA512 |
 | PSLine | string | Not required| Powershell line to be executed |
 | CmdLine | string | Not required | Command to be executed |
 | Arguments | string | Not required | Arguments to be used with CmdLine Keep in mind you can't user PSLine and Arguments. Arguments is strictly used for CmdLine. |
 | AddToPath | string | Not required | Value to be added to Windows PATH environmental variable, some installers like python's prependpath will do this for you |
-| EnvironmentalVariables | Array of two pair strings | Not required | Must have a name and value, see below for example|
-| PreRequirements | package | Not required | a nested package with the above specifications like this. PreRequirements will always get installed first|
+| EnvironmentalVariables | Array of two pair strings | Not required | Must have a name and value, see below for example |
+| PreRequirements | package | Not required | a nested package with the above specifications like this. PreRequirements will always get installed first |
 
 
 How to find the hash example for python 3.7.4.exe: 

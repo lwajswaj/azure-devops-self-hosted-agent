@@ -23,9 +23,6 @@ The following values are all possible options
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
 | Uri | string | Not required | Url to the software to download |
-
-
-
 | Hash | string | Not required | Hash value of the return item of the url (exe, msi, zip), see below to find out how to find hash value |
 | HashType | string | Not required  | Supported values: MD5, SHA, SHA256, SHA384, SHA512 |
 | PSLine | string | Not required| Powershell line to be executed |

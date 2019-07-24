@@ -33,14 +33,15 @@ The following values are all possible options
 | PreRequirements | package | Not required | a nested package with the above specifications like this. PreRequirements will always get installed first |
 
 
-How to find the hash example for python 3.7.4.exe: 
-In powershell
+### How to find the hash example for python 3.7.4.exe:
+
+open powershell
     ```powershell
     Get-FileHash .\python-3.7.4-amd64.exe -Algorithm SHA256
     ```
 Value: BAB92F987320975C7826171A072BFD64F8F0941AAF2CDEBA6924B7025C9968A3
 
-Example enviornment variables in python
+### Example enviornment variables in python
 ```json
   "EnviornmentalVariables : [
   {
@@ -56,15 +57,6 @@ Example enviornment variables in python
   ]
 ```
 
-
-
-### EnvironmentalVariable object
-The following tables describe the values you need to set in the object.
-
-| Name | Type | Required | Value |
-| --- | --- | --- | --- |
-| Name | string | Yes | Name of the Environmental Variable |
-| Value | string | Yes | Value to set the Environmental variable to |
 
 ## Examples
 

@@ -143,4 +143,5 @@
 	"HashType": "SHA256",
 	"CmdLine": "python-3.7.4-amd64.exe",
 	"Arguments": "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0"
+	}	
 }

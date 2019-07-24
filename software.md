@@ -43,18 +43,16 @@ Value: BAB92F987320975C7826171A072BFD64F8F0941AAF2CDEBA6924B7025C9968A3
 
 ### Example enviornment variables in python
 ```json
-  "EnviornmentalVariables" : [
-  {
-    "Name": "python",
-    "Value": "C:\\Program Files\\Python37\\python.exe"
-   
-  },
-  
-  {
-  "Name": "<another python enviornment>",
-  "Value": "<path to that spot>"
-  }
-  ]
+  "EnviornmentalVariables" : [{
+	    "Name": "python",
+	    "Value": "C:\\Program Files\\Python37\\python.exe"
+
+	  },
+
+	  {
+	  "Name": "<another python enviornment>",
+	  "Value": "<path to that spot>"
+	  }]
 ```
 
 

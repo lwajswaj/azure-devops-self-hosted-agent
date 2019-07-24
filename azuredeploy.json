@@ -122,7 +122,7 @@
                     ]
                   },
                   "protectedSettings": {
-                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass -File \".\\Configure-Agent.ps1\" -TeamAccount \"',parameters('TeamAccount'),'\" -PoolName \"',parameters('PoolName'),'\" -PATToken \"',parameters('PATToken'),'\" -MSDeploy -AzureRM -NodeJS -SQLPackage -Pester -SQLPS -Python')]"
+                    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy ByPass -File \".\\Configure-Agent.ps1\" -TeamAccount \"',parameters('TeamAccount'),'\" -PoolName \"',parameters('PoolName'),'\" -PATToken \"',parameters('PATToken'),'\" -Python')]"
                   }
                 }
               }

@@ -1,50 +1,29 @@
-# Software Definition (software.json)
+# Installing software duging self-hosted agent 
+This file will explain the formatting of the software.json file and how to add additional software.
 
-This file defines the available options during Azure DevOps self-hosted agent configuration. It also specifies the VSTS agent version to be installed.
-
-## File format
-
-File structure is pretty simple and it's basically a hash-table of SoftwareDefinitionObjects. It looks like this:
+## Formatting
+In short, the software.json file is a giant hash-table of packages that will be called in the configuration file. Below is a quick example of how the file looks 
 
 ```json
 {
-  "<software-name>": "<SoftwareDefinition-Object>",
-  "<another-software-name>": "<SoftwareDefinition-Object>"
+  "<package>": {
+  	<specifications>
+  },
+  
+  "<another-package>": {
+  	<specifications>
+  }
 }
 ```
+See azuredeploy.md to see how these packages are utilized. 
 
-### SoftwareDefinition object
-This is the syntax for SoftwareDefinition object.
+#### Specification Values
+The following values are all possible options
 
-```json
-{
-  "Uri": "string",
-  "Hash": "string",
-  "HashType": "MD5 | SHA | SHA256 | SHA384 | SHA512",
-  "PSline": "string",
-  "CmdLine": "string",
-  "Arguments": "string",
-  "AddToPath": "string",
-  "EnvironmentalVariables": [
-    {
-      "Name": "string",
-      "Value": "string"
-    }
-  ],
-  "PreRequirements":[
-    {
-      "<software-name>": "<SoftwareDefinition-Object>"
-    }
-  ]
-}
-```
-#### Property Values
-The following tables describe the values you need to set in the object.
+| Uri | string | Not required | Url to the software to download |
+| Hash | string | Not required | Hash value of the return product of the url |
+| How to find the hash example for python 3.7.4.exe| Get-FileHash .\python-3.7.4-amd64.exe -Algorithm SHA256 | Value: BAB92F987320975C7826171A072BFD64F8F0941AAF2CDEBA6924B7025C9968A3|
 
-| Name | Type | Required | Value |
-| --- | --- | --- | --- |
-| Uri | string | No | Url to the software to download |
-| Hash | string | No | Hash value |
 | HashType | string | No | Supported values: MD5, SHA, SHA256, SHA384, SHA512 |
 | PSLine | string | No | Powershell line to be executed |
 | CmdLine | string | No | Command to be executed |

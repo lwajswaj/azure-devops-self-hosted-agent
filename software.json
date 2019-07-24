@@ -138,16 +138,16 @@
     ]
   },
 "Python":{
-	"Uri": "https://www.python.org/ftp/python/3.7.4/python-3.7.4.exe",
-	"Hash": "9A30AB5568BA37BFBCAE5CDEE19E9DC30765C42CF066F605221563FF8B20EE34",
+	"Uri": "https://www.python.org/ftp/python/3.7.4/python-3.7.4-amd64.exe",
+	"Hash": "BAB92F987320975C7826171A072BFD64F8F0941AAF2CDEBA6924B7025C9968A3",
 	"HashType": "SHA256",
-	"CmdLine": "python-3.7.4.exe",
+	"CmdLine": "python-3.7.4-amd64.exe",
 	"Arguments": "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0",
-	"AddToPath": "C:\\Program Files (x86)\\Python37_32",
+	"AddToPath": "C:\\Program Files (x86)\\Python37_64",
 	"EnvironmentalVariables": [
       {
         "Name": "python",
-        "Value": "C:\\Program Files (x86)\\Python37_32\\python.exe"
+        "Value": "C:\\Program Files (x86)\\Python37_64\\python.exe"
       }]
 
 	}

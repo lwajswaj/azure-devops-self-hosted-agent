@@ -147,7 +147,7 @@
 	"EnvironmentalVariables": [
       {
         "Name": "python",
-        "Value": "C:\\Program Files (x86)\\Python37_32\\Python.exe"
+        "Value": "C:\\Program Files (x86)\\Python37_32\\python.exe"
       }]
 
 	}

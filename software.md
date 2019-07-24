@@ -36,7 +36,8 @@ The following values are all possible options
 ### How to find the hash example for python 3.7.4.exe:
 Open Powershell
 
-    ``` powershell
+    ```
+    powershell
     Get-FileHash .\python-3.7.4-amd64.exe -Algorithm SHA256
     ```
     
